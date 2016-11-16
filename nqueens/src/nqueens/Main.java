@@ -1,13 +1,17 @@
 package nqueens;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Random;
 import java.util.Scanner;
 
 @SuppressWarnings("nls")
 public class Main {
+
+	private static List<QueenWithWeight> visited = new ArrayList<>();
+
 	private static Queen[] generateChessBoard(final int n) {
-		System.out.println("Generating chess board..");
 		Queen[] chessBoard = new Queen[n];
 		Random rand = new Random();
 		for (int column = 0; column < n; column++) {
@@ -70,11 +74,12 @@ public class Main {
 					tmp[j] = new Queen(i, j);
 					int numCoflict = countConflicts(tmp);
 					QueenWithWeight qww = new QueenWithWeight(i, j, numCoflict);
-					queue.add(qww);
+					if (!visited.contains(qww)) {
+						queue.add(qww);
+					}
 				}
 			}
 		}
-		System.out.println("GENERATED PERMUTATION");
 		return queue;
 	}
 
@@ -103,6 +108,7 @@ public class Main {
 		while (countConflicts(queens) > 0) {
 			PriorityQueue<QueenWithWeight> queue = moveQueens(queens);
 			QueenWithWeight qww = queue.poll();
+			visited.add(qww);
 			queens[qww.y] = new Queen(qww.x, qww.y);
 			System.out.println("QUEEN MOVED: " + queens[qww.y]);
 		}

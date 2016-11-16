@@ -1,13 +1,14 @@
 package nqueens;
 
 public class Queen {
-	Queen(final int x, final int y) {
+	public Queen(final int x, final int y) {
 		this.x = x;
 		this.y = y;
 	}
 	public int x;
 	public int y;
 	
+	@SuppressWarnings("nls")
 	@Override
 	public String toString() {
 		return "[" + this.x + ", " + this.y + "]";
@@ -17,8 +18,8 @@ public class Queen {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + x;
-		result = prime * result + y;
+		result = prime * result + this.x;
+		result = prime * result + this.y;
 		return result;
 	}
 
@@ -31,9 +32,9 @@ public class Queen {
 		if (getClass() != obj.getClass())
 			return false;
 		Queen other = (Queen) obj;
-		if (x != other.x)
+		if (this.x != other.x)
 			return false;
-		if (y != other.y)
+		if (this.y != other.y)
 			return false;
 		return true;
 	}
