@@ -15,10 +15,11 @@ public class Iris {
 		return this.name;
 	}
 	
+	@SuppressWarnings("nls")
 	@Override
 	public String toString() {
-		return "Iris [sepalLength=" + sepalLength + ", sepalWidth=" + sepalWidth + ", petalLength=" + petalLength
-				+ ", petalWidth=" + petalWidth + ", name=" + name + "]";
+		return "Iris [sepalLength=" + this.sepalLength + ", sepalWidth=" + this.sepalWidth + ", petalLength=" + this.petalLength
+				+ ", petalWidth=" + this.petalWidth + ", name=" + this.name + "]";
 	}
 
 	public double sepalLength;
