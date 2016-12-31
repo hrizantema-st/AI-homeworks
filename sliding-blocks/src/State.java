@@ -5,9 +5,11 @@ import java.util.Arrays;
  * includes the state of the board, price of the path from the initial state to
  * the current state of the game, value of the heuristic function which
  * represents the estimation to the goal state of the game (sum of all the moves
- * that all tiles has to do in order to reach their final place.
- * This class also keeps the coordinates of the empty tail(represented by 0 in the game)
- * The class implement the Comparable interface in order to be put in a priority queue later.
+ * that all tiles has to do in order to reach their final place. This class also
+ * keeps the coordinates of the empty tail(represented by 0 in the game) The
+ * class implement the Comparable interface in order to be put in a priority
+ * queue later.
+ * 
  * @author hstancheva
  *
  */
@@ -15,6 +17,10 @@ public class State implements Comparable<State> {
 	public int price, heuristic;
 	public int[][] board;
 	public int x, y;
+
+	public State() {
+		super();
+	}
 
 	public State(final int price, final int heuristic, final int[][] board) {
 		super();

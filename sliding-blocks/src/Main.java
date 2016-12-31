@@ -3,25 +3,35 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.PriorityQueue;
 import java.util.Scanner;
 import java.util.Stack;
 
 @SuppressWarnings("nls")
 public class Main {
+	/**
+	 * This map keeps the correct places(two dimensions as value) of a number(as
+	 * key) on the board
+	 */
 	private static Map<Integer, int[]> correctPlaces = new HashMap<>();
 
-	static int[][] delta = { { -1, 0 }, { 0, 1 }, { 1, 0 },
-			{ 0, -1 }/* , { -1, -1 }, { -1, 1 }, { 1, 1 }, { 1, -1 } */ };
+	static int[][] delta = { { -1, 0 }, { 0, 1 }, { 1, 0 }, { 0, -1 } };
 
 	private static HashMap<State, State> pathMap = new HashMap<>();
-	private static List<State> visited = new ArrayList<>();
+	private static List<int[][]> visited = new ArrayList<>();
 
 	private static boolean isVisited(State node) {
 		return visited.contains(node);
 	}
 
+	/**
+	 * This method checks if the matrix given as first parameter is equals to
+	 * the matrix given as second argument
+	 * 
+	 * @param currentState
+	 * @param targetState
+	 * @return
+	 */
 	private static boolean isTarget(final int[][] currentState, final int[][] targetState) {
 		for (int i = 0; i < currentState.length; i++) {
 			for (int j = 0; j < currentState.length; j++) {
@@ -44,7 +54,7 @@ public class Main {
 		return newBoard;
 	}
 
-	
+	@SuppressWarnings("unused")
 	private static void printBoard(final int[][] board) {
 		int length = board.length;
 		for (int i = 0; i < length; i++) {
@@ -55,9 +65,41 @@ public class Main {
 		}
 	}
 
+	/**
+	 * This method calculates the heuristic distance from the
+	 * argument(currentState) to the final state, using the hashmap
+	 * correctPlaces
+	 * 
+	 * @param currentState
+	 *            - the state for which to calculate the heuristic
+	 * @return heuristic distance
+	 */
+	@SuppressWarnings("boxing")
+	public static int heuristicDistance(final int[][] currentState) {
+		int heuristic = 0;
+		for (int i = 0; i < currentState.length; i++) {
+			for (int j = 0; j < currentState.length; j++) {
+
+				int currentValue = currentState[i][j];
+				int[] correctPlace = correctPlaces.get(currentValue);
+				heuristic += Math.abs(correctPlace[0] - i) + Math.abs(correctPlace[1] - j);
+			}
+		}
+		return heuristic;
+	}
+
+	/**
+	 * This method is responsible for performing A* algorithm
+	 * 
+	 * @param initialState
+	 *            - the state from which to start our search
+	 * @param finalState
+	 *            - the state which we wanto to reach to
+	 */
 	public static void aAsterics(int[][] initialState, int[][] finalState) {
 		PriorityQueue<State> pq = new PriorityQueue<>();
-		pq.add(new State(0, 0, initialState));
+		State firstState = new State(0, 0, initialState);
+		pq.add(firstState);
 		while (!pq.isEmpty()) {
 			State curr = pq.poll();
 			if (isVisited(curr)) {
@@ -66,8 +108,8 @@ public class Main {
 			if (isTarget(curr.board, finalState)) {
 				break;
 			}
-			visited.add(curr);
-			int boardLength = curr.board.length; // size
+			visited.add(curr.board);
+			int boardLength = curr.board.length;
 			for (int i = 0; i < delta.length; i++) {
 				int newX = curr.x + delta[i][0];
 				int newY = curr.y + delta[i][1];
@@ -81,20 +123,37 @@ public class Main {
 
 				int newHeuristic = heuristicDistance(newBoard);
 				int newPrice = curr.price + 1;
-				System.out.println("HEURISTIC: " + newHeuristic);
-				System.out.println("PRICE: " + newPrice);
-				printBoard(newBoard);
-				System.out.println("---------------");
 				State newState = new State(newPrice, newHeuristic, newBoard);
 				if (isVisited(newState)) {
 					continue;
 				}
-				pathMap.put(curr, newState);
+				pathMap.put(newState, curr);
 				pq.add(newState);
 			}
-
 		}
+	}
 
+	/**
+	 * this method return which move the blank tile should perform in order to
+	 * move from "from" state to "to" state
+	 * 
+	 * @param from
+	 *            initial state
+	 * @param to
+	 *            goal state
+	 * @return
+	 */
+	private static String returnMove(final State from, final State to) {
+		if ((from.x - to.x) == -1) {
+			return "down";
+		} else if ((from.x - to.x) == 1) {
+			return "up";
+		} else if ((from.y - to.y) == -1) {
+			return "right";
+		} else if ((from.y - to.y) == 1) {
+			return "left";
+		} else
+			return "WTF";
 	}
 
 	@SuppressWarnings({ "boxing" })
@@ -123,50 +182,32 @@ public class Main {
 				System.out.println("Incorrect input");
 			}
 
-			printBoard(initialState);
-			System.out.println("-----------");
-			printBoard(finalState);
-			System.out.println("-----------");
-			
 			aAsterics(initialState, finalState);
-			for (Entry<Integer, int[]> entry : correctPlaces.entrySet()) {
-				System.out.println(entry.getKey() + ":[" + entry.getValue()[0] + " ," + entry.getValue()[1] + "]");
-			}
+
 			/*
 			 * This part is responsible for printing the result
 			 */
-			/*
-			 * State finalStateAsState = null; Stack<State> stack = new
-			 * Stack<>(); for (Map.Entry<State, State> entry :
-			 * pathMap.entrySet()) { printBoard(entry.getKey().board);
-			 * System.out.println("------"); if
-			 * (Arrays.deepEquals(entry.getKey().board,finalState)) {
-			 * finalStateAsState = entry.getValue(); System.out.println("OK"); }
-			 * }
-			 * 
-			 * State currentParent = finalStateAsState;
-			 * System.out.println(currentParent); while
-			 * (!isTarget(currentParent.board, initialState)) {
-			 * stack.push(currentParent); State tmp =
-			 * pathMap.get(currentParent); currentParent = tmp; } while
-			 * (!stack.isEmpty()) { State node = stack.pop();
-			 * printBoard(node.board); System.out.println(); }
-			 */
+			State finalStateAsState = null;
 
-		}
-	}
+			for (Map.Entry<State, State> entry : pathMap.entrySet()) {
+				if (Arrays.deepEquals(entry.getKey().board, finalState)) {
+					finalStateAsState = entry.getKey();
+				}
 
-	@SuppressWarnings("boxing")
-	public static int heuristicDistance(final int[][] currentState) {
-		int heuristic = 0;
-		for (int i = 0; i < currentState.length; i++) {
-			for (int j = 0; j < currentState.length; j++) {
-
-				int currentValue = currentState[i][j];
-				int[] correctPlace = correctPlaces.get(currentValue);
-				heuristic += Math.abs(correctPlace[0] - i) + Math.abs(correctPlace[1] - j);
+			}
+			Stack<String> stackOfMoves = new Stack<>();
+			System.out.println(finalStateAsState.price);
+			State currentParent = finalStateAsState;
+			while (!isTarget(currentParent.board, initialState)) {
+				State tmp = pathMap.get(currentParent);
+				stackOfMoves.push(returnMove(tmp, currentParent));
+				currentParent = tmp;
+			}
+			while (!stackOfMoves.isEmpty()) {
+				String move = stackOfMoves.pop();
+				System.out.println(move);
 			}
 		}
-		return heuristic;
 	}
+
 }
