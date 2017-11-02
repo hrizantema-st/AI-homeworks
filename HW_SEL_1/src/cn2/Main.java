@@ -1,26 +1,28 @@
 package cn2;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
-import java.util.Scanner;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+@SuppressWarnings("nls")
 public class Main {
 
-	@SuppressWarnings("nls")
 	public static void main(String[] args) throws IOException {
 		String dataset = args[0];
+		int k = Integer.valueOf(args[1]).intValue();
 		System.out.println("The chosen dataset is " + dataset);
 
-		final String csvFileName = "resources\\" + dataset + ".txt";
+		final String csvFileName = /* "resources\\" + */dataset + ".txt";
 		List<List<String>> data = null;
 		try {
 			data = readTXTFile(csvFileName);
@@ -28,44 +30,34 @@ public class Main {
 		} catch (IOException e) {
 			System.out.println("No file with the given name exists!!!");
 		}
-		List<Selector> selectors = calculateSelectors(csvFileName);
 
 		// Collections.shuffle(data);
 
 		List<List<String>> trainingData = new ArrayList<>(data.subList(0, (int) (data.size() * 0.7)));
-		List<Rule> ruleset = CN2(7, trainingData);
+
+		List<Rule> ruleset = CN2(k, trainingData);
 
 		System.out.println("======= RULESET SIZE: ======= " + ruleset.size());
 
-		ruleset.stream().forEach(System.out::println);
+		// ruleset.stream().forEach(System.out::println);
 
 		List<List<String>> testData = new ArrayList<>(data.subList((int) (data.size() * 0.7), data.size()));
 
-		List<List<String>> results = classifyData(ruleset, testData);
-		for (int i = 0; i < results.size(); i++) {
-			System.out.println(results.get(i).get(4) + "  -  " + testData.get(i).get(4));
-		}
+		// List<List<String>> results = classifyData(ruleset, testData);
+		List<BigDecimal> coverage = new ArrayList<>();
+		List<BigDecimal> precision = new ArrayList<>();
+		List<List<String>> results = classifyDataAndCalculatePrecisionAndCoverage(ruleset, testData, coverage,
+				precision);
 
-		int i = 0;
-		for (Rule r : ruleset) {
-			System.out.println("Coverage of " + i + ": " + calculateRuleCoverage(r, data));
-			System.out.println("Precision of " + i + ": " + calculateRulePrecision(r, testData, results));
+		for (int i = 0; i < ruleset.size(); i++) {
+			System.out.println(ruleset.get(i));
+			System.out.println("Coverage: " + coverage.get(i));
+			System.out.println("Precision: " + precision.get(i));
 			System.out.println("---------------------------------------");
-			i++;
 		}
+		System.out.println("Accuracy: " + calculateTotalPrecision(testData, results));
+		System.out.println("sum coverage=  " + coverage.stream().mapToDouble(BigDecimal::doubleValue).sum());
 
-	}
-
-	/**
-	 * This method is calculating log of base 2 of n
-	 * 
-	 * @param n
-	 *            which is the
-	 * 
-	 * @return the value of Log2n
-	 */
-	private static double log2(final double n) {
-		return Math.log(n) / Math.log(2);
 	}
 
 	/**
@@ -76,12 +68,12 @@ public class Main {
 	 * @return list of list of strings containing the data
 	 * @throws IOException
 	 */
-	@SuppressWarnings("nls")
 	public static List<List<String>> readTXTFile(final String csvFileName) throws IOException {
 
 		String line = null;
 		List<List<String>> csvData = new ArrayList<>();
-		try (BufferedReader stream = new BufferedReader(new FileReader(csvFileName))) {
+		try (BufferedReader stream = new BufferedReader(
+				new InputStreamReader(ClassLoader.getSystemClassLoader().getResourceAsStream(csvFileName)))) {
 			while ((line = stream.readLine()) != null)
 				csvData.add(Arrays.asList(line.split(",")));
 		}
@@ -156,7 +148,7 @@ public class Main {
 		for (Map.Entry<Object, List<String>> entry : mapOfClassFreq.entrySet()) {
 			int currentNumOfInstances = entry.getValue().size();
 			double currentProbability = (double) currentNumOfInstances / (double) numberOfExamples;
-			double nv = currentProbability * log2(currentProbability);
+			double nv = currentProbability * Utils.log2(currentProbability);
 			entropy -= nv;
 		}
 		return entropy;
@@ -181,6 +173,7 @@ public class Main {
 	 * @param instances
 	 * @return
 	 */
+	@SuppressWarnings("boxing")
 	public static String findModeClass(final List<List<String>> instances) {
 		int indexOfClassLabel = instances.get(0).size() - 1;
 		final Map<String, Long> countFrequencies = instances.stream().map(instance -> instance.get(indexOfClassLabel))
@@ -237,40 +230,41 @@ public class Main {
 		star.add(theEmptyComplex);
 
 		while (!star.isEmpty()) {
-			/*
-			 * Specialize all complexes in STAR as follows: Let NEWSTAR be the
-			 * set {x & y|x € STAR, y € SELECTORS}. Remove all complexes in
-			 * NEWSTAR that are either in STAR or null
-			 */
+
+			// Specialize all complexes in STAR as follows: Let NEWSTAR be the
+			// set {x & y|x € STAR, y € SELECTORS}. Remove all complexes in
+			// NEWSTAR that are either in STAR or null
+
 			List<Complex> newStar = new ArrayList<>();
 			for (Complex c : star) {
 				for (Selector s : allSelectors) {
 					Complex nc = intersection(c, s);
 					if (nc != null && !star.contains(nc)) {
+						// System.out.println("new c >>>>>>>" + nc);
 						newStar.add(nc);
 					}
 				}
 			}
-			/*
-			 * For every complex Ci in NEWSTAR: If Ci is statistically
-			 * significant and better than BEST.CPX when tested on E, Then
-			 * replace the current value of BEST.CPX by Ci.
-			 */
+
+			// For every complex Ci in NEWSTAR: If Ci is statistically
+			// significant and better than BEST.CPX when tested on E, Then
+			// replace the current value of BEST.CPX by Ci.
+
 			for (Complex c : newStar) {
 				if (complexComparator.compare(c, bestComplex) < 0) {
-					System.out.println("CURRENT COMPLEX VALUE: " + c + " --- " + evaluateComplexQuality(c, instances));
+					// System.out.println("CURRENT COMPLEX VALUE: " + c + " ---
+					// " + evaluateComplexQuality(c, instances));
 					bestComplex = c;
 				}
 			}
-			/*
-			 * Repeat until size of NEWSTAR < user-defined maximum: Remove the
-			 * worst complex from NEWSTAR.
-			 */
+
+			// Repeat until size of NEWSTAR < user-defined maximum: Remove the
+			// worst complex from NEWSTAR.
 			while (newStar.size() >= k) {
 				Complex worstComplex = Collections.max(newStar, complexComparator);
 				newStar.remove(worstComplex);
 			}
-			/* Let STAR be NEWSTAR. */
+			// Let STAR be NEWSTAR.
 			star = newStar;
 		}
 
@@ -308,15 +302,15 @@ public class Main {
 		Complex bestComplex = findBestComplex(instances, k, selectors);
 
 		while (bestComplex != null && !instances.isEmpty()) {
-			// E' ←instancescoveredbytheBEST_CPX
-
-			for (Rule r : cn2List) {
-				if (r.getAttributes().equals(bestComplex)) {
-					bestComplex = findBestComplex(instances, k, selectors);
-					break;
-				}
+			// check if a rule with the same antecedent is already added in the
+			// rule set
+			int index = 0;
+			while (index <= cn2List.size() - 1 && cn2List.get(index).getAttributes().equals(bestComplex)) {
+				bestComplex = findBestComplex(instances, k, selectors);
+				index++;
 			}
 
+			// E' ←instancescoveredbytheBEST_CPX
 			List<List<String>> coveredInstances = instacesCoveredByComplex(bestComplex, instances);
 			// C ←the mode class of the set of instances E
 			String modeClass = findModeClass(coveredInstances);
@@ -331,7 +325,7 @@ public class Main {
 		if (instances.size() != 0) {
 			// C ← the mode class of the set of instances E
 			String modeClass = findModeClass(instances);
-			// CreatetheruleDefRule: “if∅ -> classC”
+			// CreatetheruleDefRule: “if ∅ -> class C”
 			Rule defaultRule = new Rule(new Complex(Collections.emptyList()), modeClass);
 			cn2List.add(defaultRule);
 		}
@@ -347,90 +341,72 @@ public class Main {
 		return rule.getAttributes().doesComplexCoverExample(example);
 	}
 
-	/*
-	 * coverage(rule Ci) = #instances satisfying the antecedent / #instances of
-	 * the specific class Ci or we can use in the denominator #total instances
-	 * of the training set
-	 */
-	public static double calculateRuleCoverage(final Rule rule, final List<List<String>> data) {
-		long instancesSatisfyingTheRule = data.stream().filter(example -> isRuleApplicable(rule, example)).count();
-		long instancesSatisfyingTheAntecedent = data.stream()
-				.filter(example -> rule.getAttributes().doesComplexCoverExample(example)).count();
-		int classNameIndex = data.get(0).size() - 1;
-		long instancesOfTheClass = data.stream()
-				.filter(example -> example.get(classNameIndex).equals(rule.getClassName())).count();
-		long allInstances = data.size();
-		return (double) instancesSatisfyingTheAntecedent / (double) allInstances;
-	}
-
-	/*
-	 * precision = #instances satisfying antecedent and consequence(in other
-	 * words correctly classified instances) divided by #instances satisfying
-	 * the antecedent
-	 * 
-	 */
-	public static double calculateRulePrecision(final Rule rule, final List<List<String>> realData,
-			final List<List<String>> dataAfterCN2Classification) {
-		long numerator = 0;
-		long denominator = 0;
-		int classNameIndex = realData.get(0).size() - 1;
-		for (int i = 0; i < realData.size(); i++) {
-			if (isRuleApplicable(rule, realData.get(i))) {
-				denominator++;
-				if (realData.get(i).get(classNameIndex).equals(dataAfterCN2Classification.get(i).get(classNameIndex))) {
-					numerator++;
-				}
-			}
-		}
-		return (double) numerator / (double) denominator;
-
-	}
-
-	/**
-	 * This method is responsible for applying the rules induced from the
-	 * training data onto a new data in the given order so that it extract and
-	 * assigns class label to the given data
-	 * 
-	 * @param rules
-	 *            the induced rules used to classify the data
-	 * @param setToClassify
-	 *            the data to be classified
-	 * @return the classified data
-	 * @throws IOException
-	 */
-	public static List<List<String>> classifyData(final List<Rule> rules, final List<List<String>> setToClassify)
-			throws IOException {
-		List<List<String>> resultSet = deepCopyOfData(setToClassify);
-
+	@SuppressWarnings("boxing")
+	public static List<List<String>> classifyDataAndCalculatePrecisionAndCoverage(final List<Rule> rules,
+			final List<List<String>> setToClassify, final List<BigDecimal> coverage, final List<BigDecimal> precision)
+					throws IOException {
+		List<List<String>> resultSet = Utils.deepCopyOfData(setToClassify);
+		List<Integer> instacesSatisfyingTheAntecedent = new ArrayList<>(Collections.nCopies(resultSet.size(), 0));
+		List<Integer> instacesCoveredByRule = new ArrayList<>(Collections.nCopies(resultSet.size(), 0));
 		int classLabelIndex = resultSet.get(0).size() - 1;
 		for (int i = 0; i < resultSet.size(); i++) {
-			for (int j = 0; j < rules.size(); j++)
+			for (int j = 0; j < rules.size(); j++) {
 				if (isRuleApplicable(rules.get(j), resultSet.get(i))) {
+					instacesSatisfyingTheAntecedent.set(j, instacesSatisfyingTheAntecedent.get(j).intValue() + 1);
 					resultSet.get(i).set(classLabelIndex, rules.get(j).getClassName());
+					if (rules.get(j).getClassName().equals(setToClassify.get(i).get(classLabelIndex))) {
+						instacesCoveredByRule.set(j, instacesCoveredByRule.get(j).intValue() + 1);
+					}
 					break;
 				}
+			}
+		}
+		for (int j = 0; j < rules.size(); j++) {
+			BigDecimal currentPrecision;
+			BigDecimal currentCoverage;
+			if (instacesCoveredByRule.get(j).intValue() == 0
+					|| instacesSatisfyingTheAntecedent.get(j).intValue() == 0) {
+				currentPrecision = BigDecimal.ZERO;
+				currentCoverage = BigDecimal.ZERO;
+			} else {
+
+				currentPrecision = BigDecimal.valueOf(instacesCoveredByRule.get(j).doubleValue()).divide(
+						BigDecimal.valueOf(instacesSatisfyingTheAntecedent.get(j).doubleValue()), 5,
+						RoundingMode.HALF_UP);
+
+				currentCoverage = BigDecimal.valueOf(instacesSatisfyingTheAntecedent.get(j).doubleValue())
+						.divide(BigDecimal.valueOf(resultSet.size()), 5, RoundingMode.HALF_UP);
+			}
+
+			precision.add(currentPrecision);
+			coverage.add(currentCoverage);
 		}
 		return resultSet;
 	}
 
 	/**
-	 * Utility method to copy the data set into a new data structure.
 	 * 
-	 * @param source
-	 *            the list to be copied
-	 * @return the newly created list containing the data
+	 * @param dataset
+	 * @param dataAfterCN2Classification
+	 * @return
 	 */
-	private static List<List<String>> deepCopyOfData(final List<List<String>> source) {
-		List<List<String>> resultSet = new ArrayList<>();
-		for (int i = 0; i < source.size(); i++) {
-			List<String> currentEl = source.get(i);
-			List<String> coppiedEl = new ArrayList<>();
-			for (int j = 0; j < currentEl.size(); j++) {
-				coppiedEl.add(new String(currentEl.get(j)));
+	public static BigDecimal calculateTotalPrecision(final List<List<String>> dataset,
+			final List<List<String>> dataAfterCN2Classification) {
+		long denominator = dataset.size();
+		long numerator = 0;
+		int classNameIndex = dataset.get(0).size() - 1;
+		for (int i = 0; i < dataset.size(); i++) {
+			if (dataset.get(i).get(classNameIndex).equals(dataAfterCN2Classification.get(i).get(classNameIndex))) {
+				numerator++;
 			}
-			resultSet.add(coppiedEl);
 		}
-		return resultSet;
+		return BigDecimal.valueOf(numerator).divide(BigDecimal.valueOf(denominator), 5, RoundingMode.HALF_UP);
 	}
+
+	@SuppressWarnings("unused")
+	private static final String[] carAttrNames = { "buying", "maint", "doors", "persons", "lug_boot", "safety" };
+	@SuppressWarnings("unused")
+	private static final String[] nurseryArrtNames = { "parents", "has_nurs", "form", "children", "housing", "finance",
+			"social", "health" };
 
 }
