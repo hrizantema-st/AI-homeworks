@@ -1,5 +1,16 @@
 package cn2;
 
+/**
+ * This class is representing a selector for the CN2 rule based classifier. A
+ * selector consist of an attribute and a corresponding value. Since the
+ * algorithm should work for different data sets sets and there is not an
+ * universal way to extract the names of the attributes a field for index of the
+ * attribute is added in the class to make the representation of the selector
+ * clearer.
+ * 
+ * @author hstancheva
+ *
+ */
 public class Selector {
 	private String attribute;
 	private int attributeIndex;
@@ -15,7 +26,7 @@ public class Selector {
 	public String getAttribute() {
 		return this.attribute;
 	}
-	
+
 	public int getAttributeIndex() {
 		return this.attributeIndex;
 	}
@@ -27,7 +38,7 @@ public class Selector {
 	public void setAttribute(final String attribute) {
 		this.attribute = attribute;
 	}
-	
+
 	public void setAttributeIndex(final int attributeIndex) {
 		this.attributeIndex = attributeIndex;
 	}
@@ -75,6 +86,5 @@ public class Selector {
 			return false;
 		return true;
 	}
-	
-	
+
 }

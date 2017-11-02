@@ -1,10 +1,17 @@
 package cn2;
 
+/**
+ * This class is representing a rule for the CN2 rule based classifier. A rule
+ * consist of a complex and a corresponding class name.
+ * 
+ * @author hstancheva
+ *
+ */
 public class Rule {
 	private Complex attributes;
 	private String className;
 
-	public Rule(Complex attributes, String className) {
+	public Rule(final Complex attributes, final String className) {
 		super();
 		this.attributes = attributes;
 		this.className = className;
@@ -61,7 +68,5 @@ public class Rule {
 			return false;
 		return true;
 	}
-	
-	
 
 }

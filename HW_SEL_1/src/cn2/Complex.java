@@ -3,6 +3,13 @@ package cn2;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class is representing a complex for the CN2 rule based classifier. A
+ * complex consist of list of selectors.
+ * 
+ * @author hstancheva
+ *
+ */
 public class Complex {
 	private List<Selector> attributes;
 
@@ -10,18 +17,24 @@ public class Complex {
 		super();
 		this.attributes = new ArrayList<>();
 	}
-	public Complex(List<Selector> attributes) {
+
+	public Complex(final List<Selector> attributes) {
 		super();
 		this.attributes = attributes;
 	}
 
+	/**
+	 * This method is responsible for finding if a complex covers a given data
+	 * instance. A complex covers a data instance if all of its selectors have
+	 * the same value in the given data.
+	 * 
+	 * @param data
+	 * @return true is the complex covers the given data or false otherwise
+	 */
 	public boolean doesComplexCoverExample(final List<String> data) {
 		if (this.attributes == null)
-			return false;
-		// WTF
-		// or return true because :the empty complex (a conjunct of zero
-		// attribute tests) covers all examples and
-		// the empty cover (a disjunct of zero complexes) covers no examples
+			return true;
+		// the empty complex (a conjunct of zero attribute tests) covers all examples
 		for (Selector s : this.attributes) {
 			if (!s.getValue().equals(data.get(s.getAttributeIndex()))) {
 				return false;
@@ -34,7 +47,7 @@ public class Complex {
 		return this.attributes;
 	}
 
-	public void setAttributes(List<Selector> attributes) {
+	public void setAttributes(final List<Selector> attributes) {
 		this.attributes = attributes;
 	}
 
@@ -45,7 +58,7 @@ public class Complex {
 	@SuppressWarnings("nls")
 	@Override
 	public String toString() {
-		if(this.attributes.isEmpty()) {
+		if (this.attributes.isEmpty()) {
 			return "∅ ";
 		}
 		StringBuilder str = new StringBuilder();
@@ -61,7 +74,7 @@ public class Complex {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((attributes == null) ? 0 : attributes.hashCode());
+		result = prime * result + ((this.attributes == null) ? 0 : this.attributes.hashCode());
 		return result;
 	}
 
@@ -74,14 +87,12 @@ public class Complex {
 		if (getClass() != obj.getClass())
 			return false;
 		Complex other = (Complex) obj;
-		if (attributes == null) {
+		if (this.attributes == null) {
 			if (other.attributes != null)
 				return false;
-		} else if (!attributes.equals(other.attributes))
+		} else if (!this.attributes.equals(other.attributes))
 			return false;
 		return true;
 	}
-	
-	
 
 }
