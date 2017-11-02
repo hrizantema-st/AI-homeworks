@@ -22,7 +22,7 @@ public class Main {
 		int k = Integer.valueOf(args[1]).intValue();
 		System.out.println("The chosen dataset is " + dataset);
 
-		final String csvFileName = /* "resources\\" + */dataset + ".txt";
+		final String csvFileName = dataset + ".txt";
 		List<List<String>> data = null;
 		try {
 			data = readTXTFile(csvFileName);
@@ -34,20 +34,18 @@ public class Main {
 		// Collections.shuffle(data);
 
 		List<List<String>> trainingData = new ArrayList<>(data.subList(0, (int) (data.size() * 0.7)));
-
+		List<List<String>> coppiedTrainingDaata = Utils.deepCopyOfData(trainingData);
 		List<Rule> ruleset = CN2(k, trainingData);
 
 		System.out.println("======= RULESET SIZE: ======= " + ruleset.size());
 
-		// ruleset.stream().forEach(System.out::println);
-
 		List<List<String>> testData = new ArrayList<>(data.subList((int) (data.size() * 0.7), data.size()));
 
-		// List<List<String>> results = classifyData(ruleset, testData);
 		List<BigDecimal> coverage = new ArrayList<>();
 		List<BigDecimal> precision = new ArrayList<>();
-		List<List<String>> results = classifyDataAndCalculatePrecisionAndCoverage(ruleset, testData, coverage,
-				precision);
+		List<List<String>> resultsForTestData = Utils.classifyData(ruleset, testData);	
+		List<List<String>> resultsforTrainingData = classifyDataAndCalculatePrecisionAndCoverage(ruleset, coppiedTrainingDaata,
+				coverage, precision);
 
 		for (int i = 0; i < ruleset.size(); i++) {
 			System.out.println(ruleset.get(i));
@@ -55,8 +53,7 @@ public class Main {
 			System.out.println("Precision: " + precision.get(i));
 			System.out.println("---------------------------------------");
 		}
-		System.out.println("Accuracy: " + calculateTotalPrecision(testData, results));
-		System.out.println("sum coverage=  " + coverage.stream().mapToDouble(BigDecimal::doubleValue).sum());
+		System.out.println("Accuracy: " + calculateTotalPrecision(testData, resultsForTestData));
 
 	}
 
@@ -316,7 +313,6 @@ public class Main {
 			String modeClass = findModeClass(coveredInstances);
 			// Create the rule R: “if BEST_CPX -> class C”
 			Rule newRule = new Rule(bestComplex, modeClass);
-			System.out.println("CN======== current best complex: " + bestComplex);
 			cn2List.add(newRule);
 			// E ←E -E’
 			instances.removeAll(coveredInstances);
@@ -346,8 +342,10 @@ public class Main {
 			final List<List<String>> setToClassify, final List<BigDecimal> coverage, final List<BigDecimal> precision)
 					throws IOException {
 		List<List<String>> resultSet = Utils.deepCopyOfData(setToClassify);
+
 		List<Integer> instacesSatisfyingTheAntecedent = new ArrayList<>(Collections.nCopies(resultSet.size(), 0));
 		List<Integer> instacesCoveredByRule = new ArrayList<>(Collections.nCopies(resultSet.size(), 0));
+
 		int classLabelIndex = resultSet.get(0).size() - 1;
 		for (int i = 0; i < resultSet.size(); i++) {
 			for (int j = 0; j < rules.size(); j++) {
