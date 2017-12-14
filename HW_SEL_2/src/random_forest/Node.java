@@ -80,12 +80,4 @@ public class Node {
 		this.feature = feature;
 		this.leaf = false;
 	}
-	
-
-	public void print() {
-		System.out.println("Label: " + this.label);
-		/*System.out.println("Feature:     ");
-		System.out.println(this.feature);
-		System.out.println("-------------");*/
-	}
 }

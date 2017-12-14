@@ -34,15 +34,7 @@ public class DecisionTree {
 
 	private static void printNodeValue(Node node) {
 		System.out.println(node.getLabel());
-
 	}
-	/*
-	 * public void print() { this.root.print(); if (this.root.getChildren() !=
-	 * null) { for (int j = 0; j < this.root.getChildren().size(); j++) {
-	 * System.out.println("Branch VALUE: " +
-	 * this.root.getBranchValues().get(j));
-	 * this.root.getChildren().get(j).print(); } } }
-	 */
 
 	private void printTree(Node node, boolean isRight, String indent) {
 		int numChild = 0;
@@ -71,7 +63,7 @@ public class DecisionTree {
 	}
 
 	public void printTree() {
-		printSubtree(root);
+		printSubtree(this.root);
 	}
 
 	public void printSubtree(Node node) {
@@ -100,8 +92,7 @@ public class DecisionTree {
 	 * @param examples
 	 *            - training data
 	 */
-	public static Node id3(final List<List<String>> examples, final Feature targetAttribute,
-			final List<Feature> features) {
+	public static Node id3(final List<List<String>> examples, final List<Feature> features) {
 		int classIndex = examples.get(0).size() - 1;
 		List<Feature> attributes = Utils.deepCopyOfFeatures(features);
 		Node root = new Node();
@@ -135,8 +126,61 @@ public class DecisionTree {
 					return root;
 				} else {
 					attributes.remove(maxAttribute);
-					root.addChild(id3(newExamples, targetAttribute, attributes));
+					root.addChild(id3(newExamples, attributes));
 					// System.out.println("CHILD ADDED: ");
+					root.addBranchValue(value);
+				}
+			}
+		}
+		return root;
+	}
+
+	/**
+	 * This method works analogically to the previous one, but it is adjusted
+	 * for the needs of random forest
+	 * 
+	 * @param examples
+	 *            - training data
+	 * @param features
+	 *            - available features for usage
+	 * @param numFeatures
+	 *            - number of features which will be randomly selected
+	 * @return
+	 */
+	public static Node id3forRandomForest(final List<List<String>> examples, final List<Feature> features,
+			final int numFeatures) {
+		int classIndex = examples.get(0).size() - 1;
+		List<Feature> availableAttributes = Utils.deepCopyOfFeatures(features);
+		Node root = new Node();
+
+		if (isHomogenous(examples)) {
+			String currentClass = examples.get(0).get(classIndex);
+			root.setLabel(currentClass);
+			root.setLeaf(true);
+			return root;
+		}
+		if (availableAttributes.isEmpty()) {
+			String majorityClass = majorityClass(examples);
+			root.setLabel(majorityClass);
+			root.setLeaf(true);
+			return root;
+		} else {
+			List<Feature> randomSubset = Utils.randomSubsetOfAttributes(availableAttributes, numFeatures);
+			Feature maxAttribute = maxGain(randomSubset, examples);
+			root.setFeature(maxAttribute);
+
+			for (String value : maxAttribute.getValues()) {
+				List<List<String>> newExamples = examples.stream()
+						.filter(example -> example.get(maxAttribute.getColumnPosition()).equals(value))
+						.collect(Collectors.toList());
+				if (newExamples.isEmpty()) {
+					String majorityClass = majorityClass(examples);
+					root.setLabel(majorityClass);
+					root.setLeaf(true);
+					return root;
+				} else {
+					availableAttributes.remove(maxAttribute);
+					root.addChild(id3forRandomForest(newExamples, availableAttributes, numFeatures));
 					root.addBranchValue(value);
 				}
 			}
@@ -269,5 +313,67 @@ public class DecisionTree {
 			info += currentProbability * calculateEntropy(coveredExamples);
 		}
 		return info;
+	}
+
+	/**
+	 * This method is responsible for classifying a given data sample with the current decision tree
+	 * @param dataSample - data to be classified
+	 * @return the class found
+	 */
+	public String classify(final List<String> dataSample) {
+		return classify(dataSample, this.root);
+	}
+	/**
+	 * Recursive method for classifying a data example starting from a given node
+	 * @param dataSample - the data to be classified
+	 * @param rootNode - the node from which to start the tree traversal
+	 * @return the class found
+	 */
+	private String classify(final List<String> dataSample, Node rootNode) {
+		if(rootNode.isLeaf()) {
+			return rootNode.getLabel();
+		}
+		for (int i = 0; i < rootNode.getChildren().size(); i++) {
+			if(rootNode.getBranchValues().get(i).equals(dataSample.get(rootNode.getFeature().getColumnPosition()))) {
+					rootNode = rootNode.getChildren().get(i);
+					return classify(dataSample, rootNode);
+				}
+		}
+		return "CANNOT CLASSIFY";
+	}
+	
+	/**
+	 * This method is responsible for creating a hashmap which contains as a
+	 * keys - the features of a dataset and as values - the number of times each
+	 * features is contained in the tree
+	 * 
+	 * @param frequencies
+	 */
+	public void traverseTree(final Map<Feature, Integer> frequencies) {
+		traverseTree(this.root, frequencies);
+	}
+
+	/**
+	 * This method is responsible for creating a hashmap which contains as a
+	 * keys - the features of a dataset and as values - the number of times each
+	 * features is contained in the tree, by traversing a tree from a root node
+	 * 
+	 * @param rootNode
+	 *            - the node from which to start the traversal
+	 * @param frequencies
+	 *            - hashMap which will contains the final results
+	 */
+	@SuppressWarnings("boxing")
+	private static void traverseTree(final Node rootNode, final Map<Feature, Integer> frequencies) {
+		Integer count = frequencies.get(rootNode.getFeature());
+		if (count == null) {
+			frequencies.put(rootNode.getFeature(), 1);
+		} else
+			frequencies.put(rootNode.getFeature(), count + 1);
+		if (!rootNode.getChildren().isEmpty()) {
+			for (Node child : rootNode.getChildren()) {
+				traverseTree(child, frequencies);
+			}
+		}
 	}
 }

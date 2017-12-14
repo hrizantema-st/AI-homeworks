@@ -8,11 +8,13 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+@SuppressWarnings("nls")
 public class Utils {
 
 	/**
@@ -117,18 +119,18 @@ public class Utils {
 	 */
 	public static List<Feature> calculateAttributes(final String csvFileName) throws IOException {
 		List<List<String>> dataTable = readTXTFile(csvFileName);
-		return calculateAttributes(dataTable);
+		return calculateFeatures(dataTable);
 	}
 
 	/**
-	 * This method is calculating all possible attributes with their values for
+	 * This method is calculating all possible features with their values for
 	 * a give data table
 	 * 
 	 * @param dataTable
-	 * @return list of all possible attributes for the current data set
+	 * @return list of all possible features for the current data set
 	 * @throws IOException
 	 */
-	public static List<Feature> calculateAttributes(final List<List<String>> dataTable) throws IOException {
+	public static List<Feature> calculateFeatures(final List<List<String>> dataTable) throws IOException {
 		List<Feature> attributes = new ArrayList<>();
 		for (int i = 0; i < dataTable.get(0).size() - 1; i++) {
 			final int index = i;
@@ -140,7 +142,8 @@ public class Utils {
 		return attributes;
 	}
 
-	public static List<Feature> calculateAttributesPlusClass(final List<List<String>> dataTable) throws IOException {
+	
+	public static List<Feature> calculateAttributesPlusClassAsLastAttr(final List<List<String>> dataTable) throws IOException {
 		List<Feature> attributes = new ArrayList<>();
 		for (int i = 0; i < dataTable.get(0).size(); i++) {
 			final int index = i;
@@ -150,32 +153,6 @@ public class Utils {
 			attributes.add(newAttribute);
 		}
 		return attributes;
-	}
-
-	/**
-	 * This method is responsible for applying the rules induced from the
-	 * training data onto a new data in the given order so that it extract and
-	 * assigns class label to the given data
-	 * 
-	 * @param rules
-	 *            the induced rules used to classify the data
-	 * @param setToClassify
-	 *            the data to be classified
-	 * @return the classified data
-	 * @throws IOException
-	 */
-	public static List<List<String>> classifyData(final DecisionTree model, final List<List<String>> setToClassify)
-			throws IOException {
-		List<List<String>> resultSet = deepCopyOfData(setToClassify);
-
-		int classLabelIndex = resultSet.get(0).size() - 1;
-		for (int i = 0; i < resultSet.size(); i++) {
-			/*
-			 * { resultSet.get(i).set(classLabelIndex, tree.getClassName());
-			 * break; }
-			 */
-		}
-		return resultSet;
 	}
 
 	/**
@@ -211,6 +188,39 @@ public class Utils {
 			}
 		}
 		return BigDecimal.valueOf(numerator).divide(BigDecimal.valueOf(denominator), 5, RoundingMode.HALF_UP);
+	}
+	
+	public static BigDecimal calculatePrecision(final List<List<String>> dataset,
+			final List<String> classesObtained) {
+		long denominator = dataset.size();
+		long numerator = 0;
+		int classNameIndex = dataset.get(0).size() - 1;
+		for (int i = 0; i < dataset.size(); i++) {
+			if (dataset.get(i).get(classNameIndex).equals(classesObtained.get(i))) {
+				numerator++;
+			}
+		}
+		return BigDecimal.valueOf(numerator).divide(BigDecimal.valueOf(denominator), 5, RoundingMode.HALF_UP);
+	}
+	
+	/**
+	 * This method is responsible for producing random subset of features with a
+	 * specified size;
+	 * 
+	 * @param attributes
+	 *            - the set of attributes from which to extract the random
+	 *            subset
+	 * @param numberOfFeatures
+	 *            - the size of the subset needed
+	 * @return random subset of features with size numberOfFeatures
+	 */
+	public static List<Feature> randomSubsetOfAttributes(final List<Feature> attributes, final int numberOfFeatures) {
+		List<Feature> coppiedAttributes = Utils.deepCopyOfFeatures(attributes);
+		if(numberOfFeatures > attributes.size()) {
+			return coppiedAttributes;
+		}
+		Collections.shuffle(coppiedAttributes);
+		return coppiedAttributes.subList(0, numberOfFeatures);
 	}
 
 	@SuppressWarnings("unused")
