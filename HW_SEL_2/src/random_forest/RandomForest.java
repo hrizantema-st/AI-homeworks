@@ -48,10 +48,8 @@ public class RandomForest {
 		for (int i = 0; i < testData.size(); i++) {
 			String resultClass = classify(testData.get(i), randomForest);
 			classesObtained.add(resultClass);
-			System.out.println(
-					"RESULT should be: " + testData.get(i).get(indexOfClassLabel) + " --- it is: " + resultClass);
 		}
-		System.out.println("PRECISION: " + Utils.calculatePrecision(testData, classesObtained));
+		System.out.println("Accuracy: " + Utils.calculateAccuracy(testData, classesObtained));
 		
 		List<Feature> sortedFeatures = featuresImportance(randomForest);
 		System.out.println("FEATURES SIZE: ---------------------------- " + sortedFeatures.size());

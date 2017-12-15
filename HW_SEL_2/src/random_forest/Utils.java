@@ -177,7 +177,7 @@ public class Utils {
 	 * @param dataAfterClassification
 	 * @return
 	 */
-	public static BigDecimal calculateTotalPrecision(final List<List<String>> dataset,
+	public static BigDecimal calculatePrecision(final List<List<String>> dataset,
 			final List<List<String>> dataAfterClassification) {
 		long denominator = dataset.size();
 		long numerator = 0;
@@ -190,7 +190,13 @@ public class Utils {
 		return BigDecimal.valueOf(numerator).divide(BigDecimal.valueOf(denominator), 5, RoundingMode.HALF_UP);
 	}
 	
-	public static BigDecimal calculatePrecision(final List<List<String>> dataset,
+	/**
+	 * This method return the percentage of correctly classified data examples divided by all data examples
+	 * @param dataset - data to be classified
+	 * @param classesObtained - classes obtained after classification
+	 * @return accuracy
+	 */
+	public static BigDecimal calculateAccuracy(final List<List<String>> dataset,
 			final List<String> classesObtained) {
 		long denominator = dataset.size();
 		long numerator = 0;
