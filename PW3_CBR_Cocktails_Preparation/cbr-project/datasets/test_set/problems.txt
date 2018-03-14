@@ -1,0 +1,10 @@
+alcoholicPercentage:None,nonalcoholicLiqueurs:apple juice,vegetables:ginger,other:ice cube
+alcoholicPercentage:Medium,alcoholicLiqueurs:white rum,alcoholicLiqueurs:martini,tasteEnhancers:cane sugar
+alcoholicPercentage:Low,alcoholicLiqueurs:plum brandy
+alcoholicPercentage:None,fruit:grapefruit,vegetables:mint
+alcoholicPercentage:Medium,alcoholicLiqueurs:amber rum,nonalcoholicLiqueurs:lemon juice,fruit:orange,other:ice cube
+alcoholicPercentage:Low,alcoholicLiqueurs:white rum,fruit:lime,vegetables:lime,tasteEnhancers:anise basil,other:ice cube,other:sparkling water
+alcoholicPercentage:Low,alcoholicLiqueurs:porto,alcoholicLiqueurs:cognac,tasteEnhancers:egg,tasteEnhancers:cinnamon,tasteEnhancers:nutmeg,tasteEnhancers:cane sugar,other:ice cube
+alcoholicPercentage:None,nonalcoholicLiqueurs:apple juice,vegetables:wasabi
+alcoholicPercentage:Low,alcoholicLiqueurs:martini,fruit:lemon
+alcoholicPercentage:Strong,alcoholicLiqueurs:rum,alcoholicLiqueurs:white rum,nonalcoholicLiqueurs:lime juice,other:ice cube

@@ -1,0 +1,21 @@
+<proposals>
+<proposal>
+<text>i dont have any suggestions</text>
+<problem>alcoholicPercentage:None,nonalcoholicLiqueurs:lime juice,fruit:berry,vegetables:mint,tasteEnhancers:sugar</problem>
+<solution>
+<recipe>
+<title>Cocktail Sparkling Strawberry Lime</title>
+<no_used>0</no_used>
+<no_times_accepted>0</no_times_accepted>
+<alcoholicPercentage>0.0</alcoholicPercentage>
+<ingredients>
+</ingredients>
+<preparation>
+<step>Wash, remove stems fraises.Les mixer.Ajouter put in the lime juice and lemonade and sucre.Mixer.Verser mixer nouveau.Reserver refrigerate until serving time.</step>
+<step>Here it is finished!</step>
+<step>Enjoy it!}}</step>
+</preparation>
+</recipe>
+</solution>
+</proposal>
+</proposals>

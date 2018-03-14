@@ -1,0 +1,108 @@
+Ti'punch,alcoholicLiqueurs:white rum,nonalcoholicLiqueurs:syrup,fruit:lime
+Exotic Cocktail passion fruit,nonalcoholicLiqueurs:Lemonade,nonalcoholicLiqueurs:Blue curacao,nonalcoholicLiqueurs:passion fruit syrup,other:ice cube,nonalcoholicLiqueurs:lemon juice
+Builder,vegetables:cucumbers,fruit:lemon,tasteEnhancers:sugar,other:ice cube
+Raspberry cocktail,fruit:raspberry,tasteEnhancers:cane sugar,alcoholicLiqueurs:kirsch,nonalcoholicLiqueurs:Lemonade,fruit:lemon,alcoholicLiqueurs:Cremant
+Cocktail for lovers,nonalcoholicLiqueurs:Orange juice,nonalcoholicLiqueurs:cointreau,alcoholicLiqueurs:cognac,nonalcoholicLiqueurs:grenadine,alcoholicLiqueurs:champagne,fruit:raspberry
+Coconut kiss,nonalcoholicLiqueurs:pineapple juice,nonalcoholicLiqueurs:coconut,tasteEnhancers:sour cream,nonalcoholicLiqueurs:coconut milk
+Shot spice,tasteEnhancers:tabasco sauce,alcoholicLiqueurs:vodka,nonalcoholicLiqueurs:grenadine
+Cocktail Martini,alcoholicLiqueurs:martini,fruit:citrus fruit,fruit:lemon
+Cocktail Sparkling Strawberry Lime ,fruit:strawberry,tasteEnhancers:sugar,nonalcoholicLiqueurs:Lemonade,nonalcoholicLiqueurs:lime juice
+Citrus cocktail without alcohol,nonalcoholicLiqueurs:Orange juice,fruit:strawberry,nonalcoholicLiqueurs:lemon juice
+Citrouillette (champagne cocktail),alcoholicLiqueurs:Noilly_Prat,alcoholicLiqueurs:champagne
+Cocktail Grand Paradis,alcoholicLiqueurs:cognac,nonalcoholicLiqueurs:Apricot juice,alcoholicLiqueurs:champagne
+Cocktail Red Lion,alcoholicLiqueurs:Whiskey,nonalcoholicLiqueurs:Creme de cassis,alcoholicLiqueurs:Benedictine,alcoholicLiqueurs:pastis,other:ice cube
+Bacardi Cocktail,alcoholicLiqueurs:rum,nonalcoholicLiqueurs:grenadine,nonalcoholicLiqueurs:lemon juice
+Cocktail Balalaika,alcoholicLiqueurs:vodka,nonalcoholicLiqueurs:cointreau,fruit:lemon,other:ice cube,nonalcoholicLiqueurs:lemon juice
+Raifortissimo,nonalcoholicLiqueurs:apple juice,vegetables:wasabi,fruit:kiwi fruit,other:ice cube,nonalcoholicLiqueurs:lemon juice
+Cocktail Cranberry-orange,nonalcoholicLiqueurs:Cranberry juice,nonalcoholicLiqueurs:Orange juice,fruit:raspberry,fruit:lemon,nonalcoholicLiqueurs:lemon juice
+Pina Colada (cocktail),alcoholicLiqueurs:malibu rum,tasteEnhancers:light whipping cream,alcoholicLiqueurs:white rum,other:ice cube,nonalcoholicLiqueurs:pineapple juice
+Coconut cocktail lovers,nonalcoholicLiqueurs:coconut,alcoholicLiqueurs:white rum,nonalcoholicLiqueurs:coconut milk
+Cocktail appetizer,alcoholicLiqueurs:dry white wine,tasteEnhancers:sugar,fruit:lemon,fruit:orange,alcoholicLiqueurs:rum,other:sparkling water
+Porto Flip,alcoholicLiqueurs:Porto,alcoholicLiqueurs:cognac,tasteEnhancers:egg,tasteEnhancers:cinnamon,tasteEnhancers:nutmeg,other:ice cube,other:cane sugar syrup
+Shoot up,other:sparkling water,fruit:apricot,other:mangalore
+The kiss of Smurfette,alcoholicLiqueurs:vodka,nonalcoholicLiqueurs:Blue curacao,nonalcoholicLiqueurs:Lemonade,nonalcoholicLiqueurs:Banana juice
+Cocktail Praslin Islands,nonalcoholicLiqueurs:Passion fruit juice,tasteEnhancers:sugar,other:manguo juice
+Arranged with apple rum,alcoholicLiqueurs:rum,nonalcoholicLiqueurs:apple juice,tasteEnhancers:cane sugar,tasteEnhancers:cinnamon
+Gin fizz easy,fruit:lime,tasteEnhancers:cane sugar,other:sparkling water
+Cider cocktail,nonalcoholicLiqueurs:Hard cider,nonalcoholicLiqueurs:Creme de cassis,nonalcoholicLiqueurs:cointreau
+Planter's Punch,alcoholicLiqueurs:dark rum,nonalcoholicLiqueurs:syrup,nonalcoholicLiqueurs:lemon juice
+Coconut cocktail,alcoholicLiqueurs:vodka,nonalcoholicLiqueurs:rice milk,nonalcoholicLiqueurs:coconut,other:ice cream,tasteEnhancers:cane sugar,other:ice cube,nonalcoholicLiqueurs:coconut milk
+Walnut cocktail coconut coffee,alcoholicLiqueurs:malibu rum,nonalcoholicLiqueurs:coconut milk,nonalcoholicLiqueurs:Tamarin juice,nonalcoholicLiqueurs:coffee,other:ice cube,other:cane sugar syrup
+Rinse drops (cocktail),nonalcoholicLiqueurs:apple cider,alcoholicLiqueurs:cognac,nonalcoholicLiqueurs:Creme de cassis,other:ice cube
+Cocktail MAP,alcoholicLiqueurs:White martini,alcoholicLiqueurs:Angostura bitter,nonalcoholicLiqueurs:grapefruit juice
+Mojito with Basil,alcoholicLiqueurs:white rum,other:sparkling water,tasteEnhancers:brown sugar,fruit:lime,tasteEnhancers:anise basil,other:ice cube,other:cane sugar syrup
+Cocktail orchard,nonalcoholicLiqueurs:apricot liqueur,other:ice cube,other:apple liqueur
+Cocktail Pomenas,nonalcoholicLiqueurs:grapefruit juice,nonalcoholicLiqueurs:apple juice,fruit:raspberry,other:ice cube,nonalcoholicLiqueurs:pineapple juice
+Cocktail KidiCana,nonalcoholicLiqueurs:apple juice,vegetables:lemongrass,vegetables:ginger,other:ice cube,nonalcoholicLiqueurs:currant syrup
+Cocktail paradise,nonalcoholicLiqueurs:Orange juice,alcoholicLiqueurs:vodka,alcoholicLiqueurs:pisang ambon,other:cane sugar syrup
+Cava Cocktail Vodka Lemon,alcoholicLiqueurs:cava,alcoholicLiqueurs:vodka,fruit:lime,fruit:lime zest
+Aperol Spritz: Italian sparkling cocktail,alcoholicLiqueurs:Prosecco,other:soda water,other:ice cube,fruit:blood orange
+Limoncello cocktail,fruit:orange,alcoholicLiqueurs:Amber rum,alcoholicLiqueurs:lemon liqueur,other:ice cube
+Cuban Mojito,tasteEnhancers:cane sugar,fruit:lime,vegetables:mint,other:sparkling water,alcoholicLiqueurs:rum,other:ice cube
+Delicious tropical cocktail,nonalcoholicLiqueurs:Orange juice,nonalcoholicLiqueurs:grapefruit juice,fruit:lemon,alcoholicLiqueurs:malibu rum,nonalcoholicLiqueurs:grenadine
+Cocktail champanise,alcoholicLiqueurs:sparkling wine,nonalcoholicLiqueurs:cointreau,fruit:lemon,other:ice cube,other:cane sugar syrup
+Negroni Cocktail,alcoholicLiqueurs:campari,alcoholicLiqueurs:Angostura bitter,other:ice cube,other:gin
+Cocktail fruit juice for children,nonalcoholicLiqueurs:apple juice,other:ice cube,tasteEnhancers:powdered sugar,fruit:pineapple
+Creole cream (cocktail),alcoholicLiqueurs:white rum,nonalcoholicLiqueurs:grenadine,nonalcoholicLiqueurs:lemon juice
+Fruit cocktail with lime,nonalcoholicLiqueurs:coconut milk,other:ice cube,fruit:lime,nonalcoholicLiqueurs:lime juice
+White russian cocktail,alcoholicLiqueurs:vodka,other:ice cube,other:whole milk
+Margarita,alcoholicLiqueurs:triple sec,nonalcoholicLiqueurs:lime juice,tasteEnhancers:salt,other:tequila
+Rainbow,nonalcoholicLiqueurs:Orange juice,alcoholicLiqueurs:vodka,nonalcoholicLiqueurs:Blue curacao,nonalcoholicLiqueurs:grenadine
+Cocktail Sundays snow,fruit:raspberry,fruit:grapefruit,fruit:orange,other:currant
+Ginger cosmo,vegetables:ginger,alcoholicLiqueurs:vodka,alcoholicLiqueurs:triple sec,nonalcoholicLiqueurs:Cranberry juice,nonalcoholicLiqueurs:lime juice
+Pink cocktail whiskey,fruit:raspberry,vegetables:coriander,alcoholicLiqueurs:Whiskey,other:pistachio nut
+Cocktail grapefruit mint,fruit:grapefruit,other:ice cube,tasteEnhancers:brown sugar,vegetables:mint
+Fruit cocktail,fruit:banana,fruit:kiwi fruit,tasteEnhancers:vanilla sugar,other:water
+Champagne cocktail mint lime,alcoholicLiqueurs:champagne,other:ice cube,vegetables:mint,nonalcoholicLiqueurs:lime juice
+Bloody mary,alcoholicLiqueurs:vodka,nonalcoholicLiqueurs:worcestershire sauce,tasteEnhancers:tabasco sauce,tasteEnhancers:celery salt,tasteEnhancers:pepper,other:tomato juice
+Tequila sunrise,nonalcoholicLiqueurs:orange juice
+Cocktail drink with raspberries,alcoholicLiqueurs:white wine,alcoholicLiqueurs:sparkling wine,fruit:raspberry,tasteEnhancers:sugar
+Cocktail cardinal,other:ice cube,alcoholicLiqueurs:campari,other:gin
+Cocktail anapomise,nonalcoholicLiqueurs:apple juice,tasteEnhancers:cane sugar,other:cherry juice
+Daiquiri,alcoholicLiqueurs:white rum,nonalcoholicLiqueurs:lime juice,other:Ice cube,other:cane sugar syrup
+Sangria without alcohol,other:sangria syrup
+Cocktail Tropical Sunshine,nonalcoholicLiqueurs:Orange juice,nonalcoholicLiqueurs:coconut,other:ice cube,nonalcoholicLiqueurs:currant syrup
+Light cocktail martini,alcoholicLiqueurs:red martini,other:sparkling mineral water,fruit:lime,vegetables:mint,tasteEnhancers:sugar
+Screwdriver,alcoholicLiqueurs:vodka,nonalcoholicLiqueurs:orange juice
+Italian prosecco cocktail,alcoholicLiqueurs:Prosecco,fruit:litchi,nonalcoholicLiqueurs:berry juice,nonalcoholicLiqueurs:Lemonade,nonalcoholicLiqueurs:litchi juice
+Virevoltage,alcoholicLiqueurs:malibu rum,nonalcoholicLiqueurs:apple juice,fruit:strawberry,other:litchi liqueur
+Lemon-mint cocktail,vegetables:mint,tasteEnhancers:cane sugar,vegetables:mint,other:lemon slice
+Champagne cocktail and sake,alcoholicLiqueurs:champagne,vegetables:coriander,alcoholicLiqueurs:rice wine
+Frosty lime,fruit:lime,nonalcoholicLiqueurs:grapefruit juice,vegetables:mint,other:mint syrup
+Cocktail Saltwater,alcoholicLiqueurs:sparkling wine,nonalcoholicLiqueurs:Blue curacao,alcoholicLiqueurs:triple sec,tasteEnhancers:cane sugar,other:lemon syrup
+Grand Marnier sour (cocktail),nonalcoholicLiqueurs:grand marnier,nonalcoholicLiqueurs:lemon juice
+Amber apple cocktail,fruit:lemon,other:ice cube,nonalcoholicLiqueurs:apple juice,alcoholicLiqueurs:calvados,nonalcoholicLiqueurs:Creme de cassis,alcoholicLiqueurs:champagne,other:blackcurrant
+Caipirinha,alcoholicLiqueurs:cachaca,fruit:lime,other:ice cube,tasteEnhancers:granulated sugar
+Whisky Cocktail Cranberries,alcoholicLiqueurs:Whiskey,nonalcoholicLiqueurs:Cranberry juice
+Aquarium,nonalcoholicLiqueurs:Blue curacao,alcoholicLiqueurs:white rum,alcoholicLiqueurs:martini,tasteEnhancers:cane sugar,other:tequila
+Melon cocktail bubbles,fruit:melon,alcoholicLiqueurs:Cremant,tasteEnhancers:cane sugar,fruit:lemon,other:ice cube
+Le vandetta,fruit:strawberry,fruit:strawberry,other:juice
+Pink 3x6 (cocktail),fruit:lime,fruit:lemon,nonalcoholicLiqueurs:grapefruit juice,nonalcoholicLiqueurs:Lemonade,other:ice cube,other:fruit syrup
+Mojito,alcoholicLiqueurs:white rum,vegetables:mint,fruit:lime,tasteEnhancers:sugar,other:Sparkling water,other:ice cube
+Cocktail Pomabricotine,nonalcoholicLiqueurs:Apricot juice,nonalcoholicLiqueurs:apple juice,other:sparkling water,nonalcoholicLiqueurs:grenadine
+EssaiCCC,fruit:lemon,alcoholicLiqueurs:vodka,other:pear
+Baywatch ,alcoholicLiqueurs:malibu rum,other:guava juice
+Bora bora,nonalcoholicLiqueurs:pineapple juice,nonalcoholicLiqueurs:grenadine,other:ice cube,nonalcoholicLiqueurs:passion fruit juice
+Cocktail de fruits,fruit:banana,fruit:kiwi fruit,tasteEnhancers:vanilla sugar,other:brown_sugar
+Cocktail latte,nonalcoholicLiqueurs:coffee liqueur,alcoholicLiqueurs:Whiskey,nonalcoholicLiqueurs:rice milk,tasteEnhancers:cane sugar,other:ice cube
+Cocktail kumquat and lychee,fruit:litchi,fruit:orange,nonalcoholicLiqueurs:Lemonade,other:clementine orange
+Mexican cocktail in my way,nonalcoholicLiqueurs:apple juice,tasteEnhancers:vanilla sugar,vegetables:mint,other:tequila
+Fraisalia cocktail ,fruit:strawberry,nonalcoholicLiqueurs:Orange juice,nonalcoholicLiqueurs:Lemonade,other:ice cube,other:strawberry syrup
+Sweet pink cocktail,fruit:raspberry,fruit:lemon,other:ice cube,nonalcoholicLiqueurs:Orange juice,fruit:berry,other:grape juice
+Red cocktail,alcoholicLiqueurs:vodka,other:strawberry syrup
+Cocktail Sweet Melon,fruit:melon,fruit:lime,nonalcoholicLiqueurs:Orange juice,other:soda water,nonalcoholicLiqueurs:pineapple juice
+Champagne cocktail,tasteEnhancers:brown sugar,alcoholicLiqueurs:Angostura bitter,alcoholicLiqueurs:cognac,alcoholicLiqueurs:champagne
+Cocktail variant (based rose),nonalcoholicLiqueurs:Orange juice,other:orange syrup
+Double show,nonalcoholicLiqueurs:orange juice
+Hulk (cocktail),alcoholicLiqueurs:White martini,nonalcoholicLiqueurs:grapefruit juice,other:get_27
+Cocktail mexicanos,other:strawberry syrup
+Black velvet,alcoholicLiqueurs:champagne,other:stout
+Champagne soup (cocktail),nonalcoholicLiqueurs:cointreau,tasteEnhancers:cane sugar,fruit:lime,other:ice cube,alcoholicLiqueurs:champagne
+Cuba libre,alcoholicLiqueurs:white rum,fruit:lime,nonalcoholicLiqueurs:coca-cola
+Tutti cocktail,alcoholicLiqueurs:vodka,other:ice cube,other:peach syrup
+Pina colada,alcoholicLiqueurs:white rum,nonalcoholicLiqueurs:pineapple juice,nonalcoholicLiqueurs:coconut milk,alcoholicLiqueurs:amber rum
+Strawberry Margarita,other:ice cube,fruit:lime,fruit:strawberry,nonalcoholicLiqueurs:cointreau,tasteEnhancers:sugar,other:tequila
+Pink cocktail pink grapefruit,nonalcoholicLiqueurs:grapefruit juice,nonalcoholicLiqueurs:grenadine,other:blush wine
+Bacardi Cocktail; grenadine; lemon,alcoholicLiqueurs:rum,nonalcoholicLiqueurs:lemon juice
+MTS Cocktail,alcoholicLiqueurs:martini,alcoholicLiqueurs:triple sec,other:cane sugar syrup
+Madras Cocktail,nonalcoholicLiqueurs:Orange juice,alcoholicLiqueurs:white wine,nonalcoholicLiqueurs:grenadine

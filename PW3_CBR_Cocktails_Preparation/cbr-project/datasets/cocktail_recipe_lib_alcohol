@@ -1,0 +1,109 @@
+Ti'punch,alcoholicLiqueurs:white rum,nonalcoholicLiqueurs:syrup,fruit:lime,alcoholicPercentage:Strong
+Exotic Cocktail passion fruit,nonalcoholicLiqueurs:Lemonade,nonalcoholicLiqueurs:Blue curacao,nonalcoholicLiqueurs:passion fruit syrup,other:ice cube,nonalcoholicLiqueurs:lemon juice,alcoholicPercentage:None
+Builder,vegetables:cucumbers,fruit:lemon,tasteEnhancers:sugar,other:ice cube,alcoholicPercentage:None
+Raspberry cocktail,fruit:raspberry,tasteEnhancers:cane sugar,alcoholicLiqueurs:kirsch,nonalcoholicLiqueurs:Lemonade,fruit:lemon,alcoholicLiqueurs:Cremant,alcoholicPercentage:Low
+Cocktail for lovers,nonalcoholicLiqueurs:Orange juice,nonalcoholicLiqueurs:cointreau,alcoholicLiqueurs:cognac,nonalcoholicLiqueurs:grenadine,alcoholicLiqueurs:champagne,fruit:raspberry,alcoholicPercentage:Low
+Coconut kiss,nonalcoholicLiqueurs:pineapple juice,nonalcoholicLiqueurs:coconut,tasteEnhancers:sour cream,nonalcoholicLiqueurs:coconut milk,alcoholicPercentage:None
+Shot spice,tasteEnhancers:tabasco sauce,alcoholicLiqueurs:vodka,nonalcoholicLiqueurs:grenadine,alcoholicPercentage:Strong
+Cocktail Martini,alcoholicLiqueurs:martini,fruit:citrus fruit,fruit:lemon,alcoholicPercentage:Low
+Cocktail Sparkling Strawberry Lime ,fruit:strawberry,tasteEnhancers:sugar,nonalcoholicLiqueurs:Lemonade,nonalcoholicLiqueurs:lime juice,alcoholicPercentage:None
+Citrus cocktail without alcohol,nonalcoholicLiqueurs:Orange juice,fruit:strawberry,nonalcoholicLiqueurs:lemon juice,alcoholicPercentage:None
+Citrouillette (champagne cocktail),alcoholicLiqueurs:Noilly_Prat,alcoholicLiqueurs:champagne,alcoholicPercentage:Low
+Cocktail Grand Paradis,alcoholicLiqueurs:cognac,nonalcoholicLiqueurs:Apricot juice,alcoholicLiqueurs:champagne,alcoholicPercentage:Low
+Cocktail Red Lion,alcoholicLiqueurs:Whiskey,nonalcoholicLiqueurs:Creme de cassis,alcoholicLiqueurs:Benedictine,alcoholicLiqueurs:pastis,other:ice cube,alcoholicPercentage:None
+Bacardi Cocktail,alcoholicLiqueurs:rum,nonalcoholicLiqueurs:grenadine,nonalcoholicLiqueurs:lemon juice,alcoholicPercentage:Strong
+Cocktail Balalaika,alcoholicLiqueurs:vodka,nonalcoholicLiqueurs:cointreau,fruit:lemon,other:ice cube,nonalcoholicLiqueurs:lemon juice,alcoholicPercentage:Low
+Raifortissimo,nonalcoholicLiqueurs:apple juice,vegetables:wasabi,fruit:kiwi fruit,other:ice cube,nonalcoholicLiqueurs:lemon juice,alcoholicPercentage:None
+Cocktail Cranberry-orange,nonalcoholicLiqueurs:Cranberry juice,nonalcoholicLiqueurs:Orange juice,fruit:raspberry,fruit:lemon,nonalcoholicLiqueurs:lemon juice,alcoholicPercentage:None
+Pina Colada (cocktail),alcoholicLiqueurs:malibu rum,tasteEnhancers:light whipping cream,alcoholicLiqueurs:white rum,other:ice cube,nonalcoholicLiqueurs:pineapple juice,alcoholicPercentage:Medium
+Coconut cocktail lovers,nonalcoholicLiqueurs:coconut,alcoholicLiqueurs:white rum,nonalcoholicLiqueurs:coconut milk,alcoholicPercentage:Strong
+Cocktail appetizer,alcoholicLiqueurs:dry white wine,tasteEnhancers:sugar,fruit:lemon,fruit:orange,alcoholicLiqueurs:rum,other:sparkling water,alcoholicPercentage:Medium
+Porto Flip,alcoholicLiqueurs:Porto,alcoholicLiqueurs:cognac,tasteEnhancers:egg,tasteEnhancers:cinnamon,tasteEnhancers:nutmeg,other:ice cube,other:cane sugar syrup,alcoholicPercentage:Low
+Shoot up,other:sparkling water,fruit:apricot,other:mangalore,alcoholicPercentage:None
+The kiss of Smurfette,alcoholicLiqueurs:vodka,nonalcoholicLiqueurs:Blue curacao,nonalcoholicLiqueurs:Lemonade,nonalcoholicLiqueurs:Banana juice,alcoholicPercentage:Low
+Cocktail Praslin Islands,nonalcoholicLiqueurs:Passion fruit juice,tasteEnhancers:sugar,other:manguo juice,alcoholicPercentage:None
+Arranged with apple rum,alcoholicLiqueurs:rum,nonalcoholicLiqueurs:apple juice,tasteEnhancers:cane sugar,tasteEnhancers:cinnamon,alcoholicPercentage:Low
+Gin fizz easy,fruit:lime,tasteEnhancers:cane sugar,other:sparkling water,alcoholicPercentage:None
+Cider cocktail,nonalcoholicLiqueurs:Hard cider,nonalcoholicLiqueurs:Creme de cassis,nonalcoholicLiqueurs:cointreau,alcoholicPercentage:None
+Planter's Punch,alcoholicLiqueurs:dark rum,nonalcoholicLiqueurs:syrup,nonalcoholicLiqueurs:lemon juice,alcoholicPercentage:Low
+Coconut cocktail,alcoholicLiqueurs:vodka,nonalcoholicLiqueurs:rice milk,nonalcoholicLiqueurs:coconut,other:ice cream,tasteEnhancers:cane sugar,other:ice cube,nonalcoholicLiqueurs:coconut milk,alcoholicPercentage:Low
+Walnut cocktail coconut coffee,alcoholicLiqueurs:malibu rum,nonalcoholicLiqueurs:coconut milk,nonalcoholicLiqueurs:Tamarin juice,nonalcoholicLiqueurs:coffee,other:ice cube,other:cane sugar syrup,alcoholicPercentage:Low
+Rinse drops (cocktail),nonalcoholicLiqueurs:apple cider,alcoholicLiqueurs:cognac,nonalcoholicLiqueurs:Creme de cassis,other:ice cube,alcoholicPercentage:Low
+Cocktail MAP,alcoholicLiqueurs:White martini,alcoholicLiqueurs:Angostura bitter,nonalcoholicLiqueurs:grapefruit juice,alcoholicPercentage:None
+Mojito with Basil,alcoholicLiqueurs:white rum,other:sparkling water,tasteEnhancers:brown sugar,fruit:lime,tasteEnhancers:anise basil,other:ice cube,other:cane sugar syrup,alcoholicPercentage:Low
+Cocktail orchard,nonalcoholicLiqueurs:apricot liqueur,other:ice cube,other:apple liqueur,alcoholicPercentage:None
+Cocktail Pomenas,nonalcoholicLiqueurs:grapefruit juice,nonalcoholicLiqueurs:apple juice,fruit:raspberry,other:ice cube,nonalcoholicLiqueurs:pineapple juice,alcoholicPercentage:None
+Cocktail KidiCana,nonalcoholicLiqueurs:apple juice,vegetables:lemongrass,vegetables:ginger,other:ice cube,nonalcoholicLiqueurs:currant syrup,alcoholicPercentage:None
+Cocktail paradise,nonalcoholicLiqueurs:Orange juice,alcoholicLiqueurs:vodka,alcoholicLiqueurs:pisang ambon,other:cane sugar syrup,alcoholicPercentage:Low
+Cava Cocktail Vodka Lemon,alcoholicLiqueurs:cava,alcoholicLiqueurs:vodka,fruit:lime,fruit:lime zest,alcoholicPercentage:Low
+Aperol Spritz: Italian sparkling cocktail,alcoholicLiqueurs:Prosecco,other:soda water,other:ice cube,fruit:blood orange,alcoholicPercentage:None
+Limoncello cocktail,fruit:orange,alcoholicLiqueurs:Amber rum,alcoholicLiqueurs:lemon liqueur,other:ice cube,alcoholicPercentage:None
+Cuban Mojito,tasteEnhancers:cane sugar,fruit:lime,vegetables:mint,other:sparkling water,alcoholicLiqueurs:rum,other:ice cube,alcoholicPercentage:None
+Delicious tropical cocktail,nonalcoholicLiqueurs:Orange juice,nonalcoholicLiqueurs:grapefruit juice,fruit:lemon,alcoholicLiqueurs:malibu rum,nonalcoholicLiqueurs:grenadine,alcoholicPercentage:Medium
+Cocktail champanise,alcoholicLiqueurs:sparkling wine,nonalcoholicLiqueurs:cointreau,fruit:lemon,other:ice cube,other:cane sugar syrup,alcoholicPercentage:Low
+Negroni Cocktail,alcoholicLiqueurs:campari,alcoholicLiqueurs:Angostura bitter,other:ice cube,other:gin,alcoholicPercentage:Low
+Cocktail fruit juice for children,nonalcoholicLiqueurs:apple juice,other:ice cube,tasteEnhancers:powdered sugar,fruit:pineapple,alcoholicPercentage:None
+Creole cream (cocktail),alcoholicLiqueurs:white rum,nonalcoholicLiqueurs:grenadine,nonalcoholicLiqueurs:lemon juice,alcoholicPercentage:Medium
+Fruit cocktail with lime,nonalcoholicLiqueurs:coconut milk,other:ice cube,fruit:lime,nonalcoholicLiqueurs:lime juice,alcoholicPercentage:None
+White russian cocktail,alcoholicLiqueurs:vodka,other:ice cube,other:whole milk,alcoholicPercentage:Low
+Margarita,alcoholicLiqueurs:triple sec,nonalcoholicLiqueurs:lime juice,tasteEnhancers:salt,other:tequila,alcoholicPercentage:None
+Rainbow,nonalcoholicLiqueurs:Orange juice,alcoholicLiqueurs:vodka,nonalcoholicLiqueurs:Blue curacao,nonalcoholicLiqueurs:grenadine,alcoholicPercentage:Low
+Cocktail Sundays snow,fruit:raspberry,fruit:grapefruit,fruit:orange,other:currant,alcoholicPercentage:None
+Ginger cosmo,vegetables:ginger,alcoholicLiqueurs:vodka,alcoholicLiqueurs:triple sec,nonalcoholicLiqueurs:Cranberry juice,nonalcoholicLiqueurs:lime juice,alcoholicPercentage:Low
+Pink cocktail whiskey,fruit:raspberry,vegetables:coriander,alcoholicLiqueurs:Whiskey,other:pistachio nut,alcoholicPercentage:None
+Cocktail grapefruit mint,fruit:grapefruit,other:ice cube,tasteEnhancers:brown sugar,vegetables:mint,alcoholicPercentage:None
+Fruit cocktail,fruit:banana,fruit:kiwi fruit,tasteEnhancers:vanilla sugar,other:water,alcoholicPercentage:None
+Champagne cocktail mint lime,alcoholicLiqueurs:champagne,other:ice cube,vegetables:mint,nonalcoholicLiqueurs:lime juice,alcoholicPercentage:Low
+Bloody mary,alcoholicLiqueurs:vodka,nonalcoholicLiqueurs:worcestershire sauce,tasteEnhancers:tabasco sauce,tasteEnhancers:celery salt,tasteEnhancers:pepper,other:tomato juice,alcoholicPercentage:Low
+Tequila sunrise,nonalcoholicLiqueurs:orange juice,alcoholicPercentage:None
+Cocktail drink with raspberries,alcoholicLiqueurs:white wine,alcoholicLiqueurs:sparkling wine,fruit:raspberry,tasteEnhancers:sugar,alcoholicPercentage:Low
+Cocktail cardinal,other:ice cube,alcoholicLiqueurs:campari,other:gin,alcoholicPercentage:Low
+Cocktail anapomise,nonalcoholicLiqueurs:apple juice,tasteEnhancers:cane sugar,other:cherry juice,alcoholicPercentage:Low
+Daiquiri,alcoholicLiqueurs:white rum,nonalcoholicLiqueurs:lime juice,other:Ice cube,other:cane sugar syrup,alcoholicPercentage:Strong
+Sangria without alcohol,other:sangria syrup,alcoholicPercentage:None
+Cocktail Tropical Sunshine,nonalcoholicLiqueurs:Orange juice,nonalcoholicLiqueurs:coconut,other:ice cube,nonalcoholicLiqueurs:currant syrup,alcoholicPercentage:None
+Light cocktail martini,alcoholicLiqueurs:red martini,other:sparkling mineral water,fruit:lime,vegetables:mint,tasteEnhancers:sugar,alcoholicPercentage:Low
+Screwdriver,alcoholicLiqueurs:vodka,nonalcoholicLiqueurs:orange juice,alcoholicPercentage:Low
+Italian prosecco cocktail,alcoholicLiqueurs:Prosecco,fruit:litchi,nonalcoholicLiqueurs:berry juice,nonalcoholicLiqueurs:Lemonade,nonalcoholicLiqueurs:litchi juice,alcoholicPercentage:None
+Virevoltage,alcoholicLiqueurs:malibu rum,nonalcoholicLiqueurs:apple juice,fruit:strawberry,other:litchi liqueur,alcoholicPercentage:Low
+Lemon-mint cocktail,vegetables:mint,tasteEnhancers:cane sugar,vegetables:mint,other:lemon slice,alcoholicPercentage:None
+Champagne cocktail and sake,alcoholicLiqueurs:champagne,vegetables:coriander,alcoholicLiqueurs:rice wine,alcoholicPercentage:Low
+Frosty lime,fruit:lime,nonalcoholicLiqueurs:grapefruit juice,vegetables:mint,other:mint syrup,alcoholicPercentage:None
+Cocktail Saltwater,alcoholicLiqueurs:sparkling wine,nonalcoholicLiqueurs:Blue curacao,alcoholicLiqueurs:triple sec,tasteEnhancers:cane sugar,other:lemon syrup,alcoholicPercentage:None
+Grand Marnier sour (cocktail),nonalcoholicLiqueurs:grand marnier,nonalcoholicLiqueurs:lemon juice,alcoholicPercentage:None
+Amber apple cocktail,fruit:lemon,other:ice cube,nonalcoholicLiqueurs:apple juice,alcoholicLiqueurs:calvados,nonalcoholicLiqueurs:Creme de cassis,alcoholicLiqueurs:champagne,other:blackcurrant,alcoholicPercentage:Low
+Caipirinha,alcoholicLiqueurs:cachaca,fruit:lime,other:ice cube,tasteEnhancers:granulated sugar,alcoholicPercentage:Strong
+Whisky Cocktail Cranberries,alcoholicLiqueurs:Whiskey,nonalcoholicLiqueurs:Cranberry juice,alcoholicPercentage:None
+Aquarium,nonalcoholicLiqueurs:Blue curacao,alcoholicLiqueurs:white rum,alcoholicLiqueurs:martini,tasteEnhancers:cane sugar,other:tequila,alcoholicPercentage:Medium
+Melon cocktail bubbles,fruit:melon,alcoholicLiqueurs:Cremant,tasteEnhancers:cane sugar,fruit:lemon,other:ice cube,alcoholicPercentage:None
+Le vandetta,fruit:strawberry,fruit:strawberry,other:juice,alcoholicPercentage:None
+Pink 3x6 (cocktail),fruit:lime,fruit:lemon,nonalcoholicLiqueurs:grapefruit juice,nonalcoholicLiqueurs:Lemonade,other:ice cube,other:fruit syrup,alcoholicPercentage:None
+Mojito,alcoholicLiqueurs:white rum,vegetables:mint,fruit:lime,tasteEnhancers:sugar,other:Sparkling water,other:ice cube,alcoholicPercentage:Low
+Cocktail Pomabricotine,nonalcoholicLiqueurs:Apricot juice,nonalcoholicLiqueurs:apple juice,other:sparkling water,nonalcoholicLiqueurs:grenadine,alcoholicPercentage:None
+EssaiCCC,fruit:lemon,alcoholicLiqueurs:vodka,other:pear,alcoholicPercentage:None
+Baywatch ,alcoholicLiqueurs:malibu rum,other:guava juice,alcoholicPercentage:Low
+Bora bora,nonalcoholicLiqueurs:pineapple juice,nonalcoholicLiqueurs:grenadine,other:ice cube,nonalcoholicLiqueurs:passion fruit juice,alcoholicPercentage:None
+Cocktail de fruits,fruit:banana,fruit:kiwi fruit,tasteEnhancers:vanilla sugar,other:brown_sugar,alcoholicPercentage:None
+Cocktail latte,nonalcoholicLiqueurs:coffee liqueur,alcoholicLiqueurs:Whiskey,nonalcoholicLiqueurs:rice milk,tasteEnhancers:cane sugar,other:ice cube,alcoholicPercentage:None
+Cocktail kumquat and lychee,fruit:litchi,fruit:orange,nonalcoholicLiqueurs:Lemonade,other:clementine orange,alcoholicPercentage:None
+Mexican cocktail in my way,nonalcoholicLiqueurs:apple juice,tasteEnhancers:vanilla sugar,vegetables:mint,other:tequila,alcoholicPercentage:None
+Fraisalia cocktail ,fruit:strawberry,nonalcoholicLiqueurs:Orange juice,nonalcoholicLiqueurs:Lemonade,other:ice cube,other:strawberry syrup,alcoholicPercentage:None
+Sweet pink cocktail,fruit:raspberry,fruit:lemon,other:ice cube,nonalcoholicLiqueurs:Orange juice,fruit:berry,other:grape juice,alcoholicPercentage:None
+Red cocktail,alcoholicLiqueurs:vodka,other:strawberry syrup,alcoholicPercentage:Low
+Cocktail Sweet Melon,fruit:melon,fruit:lime,nonalcoholicLiqueurs:Orange juice,other:soda water,nonalcoholicLiqueurs:pineapple juice,alcoholicPercentage:None
+Champagne cocktail,tasteEnhancers:brown sugar,alcoholicLiqueurs:Angostura bitter,alcoholicLiqueurs:cognac,alcoholicLiqueurs:champagne,alcoholicPercentage:Medium
+Cocktail variant (based rose),nonalcoholicLiqueurs:Orange juice,other:orange syrup,alcoholicPercentage:None
+Double show,nonalcoholicLiqueurs:orange juice,alcoholicPercentage:None
+Hulk (cocktail),alcoholicLiqueurs:White martini,nonalcoholicLiqueurs:grapefruit juice,other:get_27,alcoholicPercentage:None
+Cocktail mexicanos,other:strawberry syrup,alcoholicPercentage:None
+Black velvet,alcoholicLiqueurs:champagne,other:stout,alcoholicPercentage:Low
+Champagne soup (cocktail),nonalcoholicLiqueurs:cointreau,tasteEnhancers:cane sugar,fruit:lime,other:ice cube,alcoholicLiqueurs:champagne,alcoholicPercentage:Low
+Cuba libre,alcoholicLiqueurs:white rum,fruit:lime,nonalcoholicLiqueurs:coca-cola,alcoholicPercentage:Low
+Tutti cocktail,alcoholicLiqueurs:vodka,other:ice cube,other:peach syrup,alcoholicPercentage:Low
+Pina colada,alcoholicLiqueurs:white rum,nonalcoholicLiqueurs:pineapple juice,nonalcoholicLiqueurs:coconut milk,alcoholicLiqueurs:amber rum,alcoholicPercentage:Low
+Strawberry Margarita,other:ice cube,fruit:lime,fruit:strawberry,nonalcoholicLiqueurs:cointreau,tasteEnhancers:sugar,other:tequila,alcoholicPercentage:None
+Pink cocktail pink grapefruit,nonalcoholicLiqueurs:grapefruit juice,nonalcoholicLiqueurs:grenadine,other:blush wine,alcoholicPercentage:None
+Bacardi Cocktail; grenadine; lemon,alcoholicLiqueurs:rum,nonalcoholicLiqueurs:lemon juice,alcoholicPercentage:Strong
+MTS Cocktail,alcoholicLiqueurs:martini,alcoholicLiqueurs:triple sec,other:cane sugar syrup,alcoholicPercentage:Low
+Madras Cocktail,nonalcoholicLiqueurs:Orange juice,alcoholicLiqueurs:white wine,nonalcoholicLiqueurs:grenadine,alcoholicPercentage:Low
+Cocktail Sparkling Strawberry Lime,nonalcoholicLiqueurs:lime juice,fruit:berry,vegetables:mint,tasteEnhancers:sugar,alcoholicPercentage:N,alcoholicPercentage:o,alcoholicPercentage:n,alcoholicPercentage:e
