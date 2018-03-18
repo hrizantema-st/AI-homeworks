@@ -1,37 +1,34 @@
-package rs.hw1;
+package rs.rs_hw1;
 
+import java.io.BufferedReader;
 import java.io.File;
-import java.io.IOException;
-
-import org.apache.lucene.analysis.standard.StandardAnalyzer;
-import org.apache.lucene.index.IndexWriter;
-import org.apache.lucene.index.IndexWriterConfig;
-import org.apache.lucene.store.Directory;
-import org.apache.lucene.store.RAMDirectory;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.Reader;
+import java.util.ArrayList;
+import java.util.List;
 
 public class User {
-
-	public static void main(String... args) {
-		StandardAnalyzer analyzer = new StandardAnalyzer();
-		Directory index = new RAMDirectory();
-		IndexWriterConfig config = new IndexWriterConfig(analyzer);
-		try {
-			IndexWriter w = new IndexWriter(index, config);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
+	
+	private String directory;
+	private List<Reader> userPreferences = new ArrayList<>();
+	
+	public User(final String directory) {
+		
+		this.directory = directory;
 	}
-
-	public static void showFiles(File[] files) {
-	    for (File file : files) {
-	        if (file.isDirectory()) {
-	            System.out.println("Directory: " + file.getName());
-	            showFiles(file.listFiles()); // Calls same method again.
-	        } else {
-	            System.out.println("File: " + file.getName());
-	        }
-	    }
+	
+	private void getFiles() throws FileNotFoundException {
+		File[] fileNames = new File(this.directory).listFiles();
+			for (File file : fileNames) {
+				@SuppressWarnings("nls")
+				Reader target = new BufferedReader(new FileReader(this.directory + "\\" + file.getName()));
+				this.userPreferences.add(target);
+			}
+	}
+	
+	public Reader[] getUserPreferences() throws FileNotFoundException {
+		getFiles();
+		return this.userPreferences.toArray(new Reader[this.userPreferences.size()]);
 	}
 }
